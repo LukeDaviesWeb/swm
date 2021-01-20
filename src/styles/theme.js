@@ -5,6 +5,7 @@ export const theme = {
         white: 'rgb(255,255,255)',
         grey: 'rgb(43,44,45)',
         blue: 'rgb(4, 61, 226)',
+        red: 'rgb(247, 63, 63)'
     },
     fonts: {
         body: "'Times New Roman', serif;",
