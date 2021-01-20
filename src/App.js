@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components'
+
+import { Article } from './sections/Article'
+import { Aside } from './sections/Aside'
+
+import { theme } from './styles/theme'
+import { GlobalStyle } from './styles/base'
+
+import styled from 'styled-components'
+
+const StyledAppWrap = styled.div`
+    border: 1px solid ${props => props.theme.colors.grey};
+    display: grid;
+    grid-template-columns: minmax(0px, 1fr) 30rem;
+    gap: 2.1rem;
+`
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <GlobalStyle />
+            <ThemeProvider theme={theme}>
+                <div className="App">
+
+                    <StyledAppWrap className="container">
+                        <Article />
+                        <Aside />
+                    </StyledAppWrap>
+
+                </div>
+            </ThemeProvider>
+        </>
+    );
 }
 
 export default App;
