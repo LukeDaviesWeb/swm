@@ -2,6 +2,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { Article } from './sections/Article'
 import { Aside } from './sections/Aside'
+import { WithData } from './components/WithData'
 
 import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/base'
@@ -16,6 +17,9 @@ const StyledAppWrap = styled.div`
 `
 
 function App() {
+
+    const ArticleWithData = WithData(Article);
+
     return (
         <>
             <GlobalStyle />
@@ -23,7 +27,8 @@ function App() {
                 <div className="App">
 
                     <StyledAppWrap className="container">
-                        <Article />
+
+                        <ArticleWithData hey="hehehe" />
                         <Aside />
                     </StyledAppWrap>
 
