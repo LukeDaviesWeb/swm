@@ -3,23 +3,27 @@ import axios from 'axios'
 
 export const WithData = (WrappedComponent) => {
     const [data, setData] = useState({});
-    const [load, setLoad] = useState(false);
-    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        axios.get('codetestjson.json')
-            .then(res => {
+        const fetchData = async () => {
+            setIsLoading(true);
+            setIsError(false);
+            try {
+                const res = await axios('codetestjson.json');
                 setData(res.data);
-                setLoad(true);
-            })
-            .catch(err => {
-                setError(err.message);
-                setLoad(true)
-            })
+            } catch (error) {
+                setIsError(true)
+            }
+            setIsLoading(false);
+        }
+
+        fetchData();
     }, []);
 
     const RequiresData = (props) => {
-        return <WrappedComponent data={data} load={load} error={error} {...props} />;
+        return <WrappedComponent data={data} isLoading={isLoading} isError={isError} {...props} />;
     };
 
 
