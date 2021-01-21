@@ -10,11 +10,10 @@ import { GlobalStyle } from './styles/base'
 import styled from 'styled-components'
 
 const StyledAppWrap = styled.div`
-    border: 1px solid ${props => props.theme.colors.grey};
     display: grid;
     grid-template-columns: 100%;
     gap: 2.1rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
 
     ${(props) => props.theme.mediaQueries.md} {
         grid-template-columns: minmax(0px, 1fr) 30rem;
@@ -33,7 +32,7 @@ function App() {
             <ThemeProvider theme={theme}>
                 <div className="App">
                     <StyledAppWrap className="container">
-                        <ArticleWithData hey="hehehe" />
+                        <ArticleWithData />
                         <Aside />
                     </StyledAppWrap>
                 </div>

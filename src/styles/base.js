@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         box-sizing: border-box;
         scroll-behavior: smooth;
-        overflow-x: hidden;
     }
 
     *, *:before, *:after {
@@ -24,12 +23,19 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
         font-family: ${props => theme.fonts.body};
         color: ${props => theme.colors.grey};
-        overflow-x: hidden;
     }
 
     .container{
         margin: 0 auto;
         max-width: 1250px;
+    }
+
+    .label{
+        font-size: ${props => theme.fontSizes.label};
+    }
+
+    .small{
+        font-size: ${props => theme.fontSizes.small};
     }
 
     h1, h2, h3,h4,h5,h6{
@@ -39,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
     
     h1, .h1{
         font-size: ${props => theme.fontSizes.h1};
+        line-height: 1;
     }
     h2, .h2{
         font-size: ${props => theme.fontSizes.h2};
@@ -49,6 +56,7 @@ export const GlobalStyle = createGlobalStyle`
 
     p{
         font-size: ${props => theme.fontSizes.body};
+        margin: 0;
     }
 
 
@@ -75,6 +83,15 @@ export const GlobalStyle = createGlobalStyle`
         li{
             list-style-type: none;
             font-weight: 400;
+        }
+    }
+
+    .component-container{
+        max-width: 80%;
+        margin: 0 auto;
+
+        ${(props) => theme.mediaQueries.md} {
+            max-width: 75%;
         }
     }
 `

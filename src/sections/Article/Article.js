@@ -1,14 +1,32 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
+import { Header } from '../../components/Header'
+import { Content } from '../../components/Content'
+
 import { StyledArticle } from './styled'
 
-export const Article = ({ data, isLoading, error, ...props }) => {
+export const Article = ({ data, isLoading, isError, ...props }) => {
 
-    if (!isLoading) {
-        console.log(data.blocks);
-    }
+    if (isLoading) return <p>Loading...</p>
+    if (isError) return <p>An Error has occured... please try again.</p>
+
     return (
         <StyledArticle>
-            <h1>article here</h1>
+            <Header
+                headline={data?.headline}
+                byline={data?.byline}
+                publicationDate={data?.publicationDate}
+                source={data?.source}
+            />
+
+            <Content data={data} />
         </StyledArticle>
     )
 }
+
+Article.propTypes = {
+    data: PropTypes.object,
+    isLoading: PropTypes.bool,
+    isError: PropTypes.bool,
+};
