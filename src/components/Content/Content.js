@@ -10,7 +10,7 @@ import { StyledContent } from './Styled'
 
 export const Content = ({ data }) => {
 
-    console.log(data)
+    //ADD KEY TO MAP
     return (
         <StyledContent>
             {   data.blocks?.map(componentData => {

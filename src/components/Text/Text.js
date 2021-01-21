@@ -9,17 +9,9 @@ export const Text = ({ data, ...props }) => {
     let displayText = data?.text;
     let intentions = data?.intentions;
 
-
-    const wrapWithEmphasize = (arr, index, length) => {
-        arr.splice(index, 0, '<em>');
-        arr.splice(index + length, 0, '</em>');
-
-        return arr;
-    }
-
-    const wrapWithBold = (arr, index, length) => {
-        arr.splice(index, 0, '<b>');
-        arr.splice(index + length, 0, '</b>');
+    const wrapWithTags = (arr, index, length, tag) => {
+        arr.splice(index, 0, `<${tag}>`);
+        arr.splice(index + length, 0, `</${tag}>`);
 
         return arr;
     }
@@ -29,10 +21,10 @@ export const Text = ({ data, ...props }) => {
         intentions.forEach(intent => {
             switch (intent.kind) {
                 case 'emphasized':
-                    wrapWithEmphasize(arrayString, intent.index, intent.length);
+                    wrapWithTags(arrayString, intent.index, intent.length, 'em');
                     break;
                 case 'important':
-                    wrapWithBold(arrayString, intent.index, intent.length);
+                    wrapWithTags(arrayString, intent.index, intent.length, 'b');
                     break;
                 default: return;
             }
