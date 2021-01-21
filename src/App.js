@@ -22,6 +22,7 @@ const StyledAppWrap = styled.div`
     }
 `
 
+
 function App() {
 
     const ArticleWithData = WithData(Article);
