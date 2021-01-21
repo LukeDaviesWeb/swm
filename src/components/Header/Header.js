@@ -13,9 +13,9 @@ export const Header = ({ headline, byline, publicationDate, source, ...props }) 
             <h1 className="header__headline">{headline}</h1>
 
             <div>
-                <p><b>{byline}</b> <em>{source}</em></p>
+                <p className="small" ><b>{byline},</b> <em>{source}</em></p>
 
-                <div className="header__date-wrap">
+                <div className="header__date-wrap small">
                     <Moment format="ddd, DD MMMM YYYY LT">
                         {publicationDate}
                     </Moment>

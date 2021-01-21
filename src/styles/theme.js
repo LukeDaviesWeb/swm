@@ -19,7 +19,7 @@ export const theme = {
         paddingMedium: "16px 42px",
     },
     fontSizes: {
-        h1: "3.8rem",
+        h1: "3.2rem",
         h2: "2.8rem",
         h3: "2.4rem",
 
